@@ -1,0 +1,12 @@
+let Parser = require('rss-parser');
+const client = ("..")
+let parser = new Parser();
+client.db = require("@replit/database");
+
+(async function checkOneHour() {
+
+  if([null, undefined].includes(client.db.get(`ddtc_last_post_id`))) client.db.set(`ddtc_last_post_id`, 0);
+  let feed = await parser.parseURL('https://news.ddtc.co.id/rss');
+  //console.log('feed');
+
+})
